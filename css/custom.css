@@ -1,0 +1,280 @@
+/* custom.css - Estilos personalizados para HuertoHogar */
+
+:root {
+    --verde-esmeralda: #2E8B57;
+    --amarillo-mostaza: #FFD700;
+    --marron-claro: #8B4513;
+    --gris-oscuro: #333333;
+    --gris-medio: #666666;
+    --fondo-suave: #F7F7F7;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--gris-oscuro);
+    background-color: var(--fondo-suave);
+    padding-top: 80px; /* Para compensar el navbar fijo */
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Playfair Display', serif;
+    color: var(--marron-claro);
+}
+
+/* Botones personalizados */
+.btn-primary {
+    background-color: var(--verde-esmeralda);
+    border-color: var(--verde-esmeralda);
+    color: white;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #267349;
+    border-color: #267349;
+    color: white;
+}
+
+.btn-outline-primary {
+    color: var(--verde-esmeralda);
+    border-color: var(--verde-esmeralda);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--verde-esmeralda);
+    color: white;
+}
+
+/* Navbar personalizado */
+
+.logo-navbar {
+  height: 90px;   /* tamaño base en móviles */
+  width: auto;    /* mantiene la proporción */
+  max-height: 100px; /* seguridad por si la imagen es enorme */
+}
+
+@media (min-width: 992px) {
+  .logo-navbar {
+    height: 80px; 
+  }
+}
+
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--verde-esmeralda) !important;
+    font-size: 1.8rem;
+}
+
+.nav-link {
+    color: var(--gris-oscuro) !important;
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--verde-esmeralda) !important;
+}
+
+/* Badges personalizados */
+.badge.bg-primary {
+    background-color: var(--verde-esmeralda) !important;
+}
+
+/* Cards personalizadas */
+.card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 12px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-title {
+    color: var(--marron-claro);
+    font-weight: 600;
+}
+
+.card-img-top {
+    border-radius: 12px 12px 0 0;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Formularios personalizados */
+.form-control:focus {
+    border-color: var(--verde-esmeralda);
+    box-shadow: 0 0 0 0.25rem rgba(46, 139, 87, 0.25);
+}
+
+/* Footer personalizado */
+footer {
+    background-color: white;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    margin-top: auto;
+}
+
+/* Colores de texto personalizados */
+.text-primary {
+    color: var(--verde-esmeralda) !important;
+}
+
+.text-secondary {
+    color: var(--gris-medio) !important;
+}
+
+/* Backgrounds personalizados */
+.bg-primary {
+    background-color: var(--verde-esmeralda) !important;
+}
+
+.bg-light {
+    background-color: var(--fondo-suave) !important;
+}
+
+/* Hero section */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/estante.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 6rem 0;
+    margin-bottom: 3rem;
+    border-radius: 0 0 20px 20px;
+}
+
+.hero-section h1 {
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-section p {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.login-container {
+            padding-top: 10px;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+
+.login-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+
+/* Product card styles */
+.product-card .price {
+    color: var(--verde-esmeralda);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* Ofertas especiales */
+.offer-badge {
+    background-color: var(--amarillo-mostaza);
+    color: var(--gris-oscuro);
+    font-weight: 600;
+    padding: 0.5em 0.8em;
+}
+
+/* Estilos para el carrito */
+.cart-icon {
+    position: relative;
+    text-decoration: none !important;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: var(--amarillo-mostaza);
+    color: var(--gris-oscuro);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* Estilos para la sección de contacto */
+.contact-info i {
+    color: var(--verde-esmeralda);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Estilos para el mapa */
+.map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Utilidades adicionales */
+.bg-verde {
+    background-color: var(--verde-esmeralda);
+}
+
+.text-verde {
+    color: var(--verde-esmeralda);
+}
+
+.bg-marron {
+    background-color: var(--marron-claro);
+}
+
+.text-marron {
+    color: var(--marron-claro);
+}
+
+/* Estilos responsivos adicionales */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 4rem 0;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    
+    body {
+        padding-top: 70px;
+    }
+}
+
+/* Mejoras de accesibilidad */
+.btn:focus,
+.form-control:focus {
+    outline: none;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
