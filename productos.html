@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huerto Hogar - Productos</title>
+ 
+    <link rel="icon" href="./images/icon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./images/icon.ico">
+    <link rel="shortcut icon" href="./images/icon.ico" type="image/x-icon">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"></noscript>
+    
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+<body data-page="productos">
+    
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./images/logo.jpg" alt="del campo al hogar" class="logo-navbar">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blogs.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+                <div id="LoginRegister" class="d-none d-flex align-items-center">
+                    <a href="login.html" class="btn btn-outline-primary me-2">Ingresar</a>
+                    <a href="registro.html" class="btn btn-primary me-3">Registrarse</a>
+                    <a href="carrito.html" class="btn btn-link position-relative cart-icon">
+                        <i class="bi bi-cart3" style="font-size: 1.5rem;"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+                <div id="userLoggedIn" class="d-none d-flex align-items-center" style="display: none;">
+                    <span class="me-2 text-secondary">Bienvenido, </span>
+                    <span class="user-email me-3 text-verde fw-bold"></span>
+                    <a href="carrito.html" class="btn btn-link position-relative cart-icon me-2">
+                        <i class="bi bi-cart3" style="font-size: 1.5rem;"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="btn btn-outline-secondary btn-sm" onclick="cerrarSesion()">
+                        <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-5 fw-bold text-white">Nuestros Productos</h1>
+            <p class="lead text-white">Descubre la frescura y calidad de nuestros productos directamente del campo a tu hogar</p>
+        </div>
+    </section>
+
+    <main class="container my-5">
+
+        <div class="product-search text-center mb-3">
+            <input type="text" id="searchInput" class="form-control w-50 mx-auto" placeholder="Buscar producto...">
+        </div>
+
+        <div class="category-filter text-center">
+            <button class="btn btn-outline-primary category-btn" data-category="all">Todos</button>
+            <button class="btn btn-outline-primary category-btn" data-category="frutas">Frutas Frescas</button>
+            <button class="btn btn-outline-primary category-btn" data-category="verduras">Verduras Orgánicas</button>
+            <button class="btn btn-outline-primary category-btn" data-category="organicos">Productos Orgánicos</button>
+            <button class="btn btn-outline-primary category-btn" data-category="lacteos">Productos Lácteos</button>
+        </div>
+
+        <div class="row" id="productos-grid">
+
+            <div class="col-md-4 mb-4 product-item" data-category="frutas">
+                <div class="card product-card h-100">
+                    <span class="offer-badge badge position-absolute m-2">Oferta</span>
+                    <img src="./images/products/apples2.jpg" class="card-img-top" alt="Manzanas Fuji">
+                    <div class="card-body">
+                        <h5 class="card-title">Manzanas Fuji <span class="badge bg-verde">FR001</span></h5>
+                        <p class="card-text">Crujientes y dulces, cultivadas en el Valle del Maule. Perfectas para meriendas saludables o como ingrediente en postres.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">$1.200 CLP/kg</span>
+                            <button class="btn btn-primary btn-agregar-carrito">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4 product-item" data-category="frutas">
+                <div class="card product-card h-100">
+                    <img src="./images/products/oranges2.jpg" class="card-img-top" alt="Naranjas Valencia">
+                    <div class="card-body">
+                        <h5 class="card-title">Naranjas Valencia <span class="badge bg-verde">FR002</span></h5>
+                        <p class="card-text">Jugosas y ricas en vitamina C, ideales para zumos frescos y refrescantes. Cultivadas en condiciones climáticas óptimas.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">$1.000 CLP/kg</span>
+                            <button class="btn btn-primary btn-agregar-carrito">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4 product-item" data-category="frutas">
+                <div class="card product-card h-100">
+                    <img src="./images/products/bananas.jpg" class="card-img-top" alt="Plátanos Cavendish">
+                    <div class="card-body">
+                        <h5 class="card-title">Plátanos Cavendish <span class="badge bg-verde">FR003</span></h5>
+                        <p class="card-text">Maduros y dulces, perfectos para el desayuno o como snack energético. Ricos en potasio y vitaminas.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">$800 CLP/kg</span>
+                            <button class="btn btn-primary btn-agregar-carrito">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4 product-item" data-category="verduras">
+                <div class="card product-card h-100">
+                    <img src="./images/products/carrots.jpg" class="card-img-top" alt="Zanahorias Orgánicas">
+                    <div class="card-body">
+                        <h5 class="card-title">Zanahorias Orgánicas <span class="badge bg-verde">VR001</span></h5>
+                        <p class="card-text">Cultivadas sin pesticidas en la Región de O'Higgins. Excelente fuente de vitamina A y fibra, ideales para ensaladas y jugos.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">$900 CLP/kg</span>
+                            <button class="btn btn-primary btn-agregar-carrito">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4 product-item" data-category="verduras">
+                <div class="card product-card h-100">
+                    <img src="./images/products/spinach.jpg" class="card-img-top" alt="Espinacas Frescas">
+                    <div class="card-body">
+                        <h5 class="card-title">Espinacas Frescas <span class="badge bg-verde">VR002</span></h5>
+                        <p class="card-text">Frescas y nutritivas, perfectas para ensaladas y batidos verdes. Cultivadas bajo prácticas orgánicas que garantizan su calidad.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">$700 CLP/500g</span>
+                            <button class="btn btn-primary btn-agregar-carrito">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4 product-item" data-category="verduras">
+                <div class="card product-card h-100">
+                    <span class="offer-badge badge position-absolute m-2">Nuevo</span>
+                    <img src="./images/products/peppers.jpg" class="card-img-top" alt="Pimientos Tricolores">
+                    <div class="card-body">
+                        <h5 class="card-title">Pimientos Tricolores <span class="badge bg-verde">VR003</span></h5>
+                        <p class="card-text">Pimientos rojos, amarillos y verdes, ideales para salteados y platos coloridos. Ricos en antioxidantes y vitaminas.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">$1.500 CLP/kg</span>
+                            <button class="btn btn-primary btn-agregar-carrito">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4 product-item" data-category="organicos">
+                <div class="card product-card h-100">
+                    <img src="./images/products/honey.jpg" class="card-img-top" alt="Miel Orgánica">
+                    <div class="card-body">
+                        <h5 class="card-title">Miel Orgánica <span class="badge bg-verde">PO001</span></h5>
+                        <p class="card-text">Miel pura y orgánica producida por apicultores locales. Rica en antioxidantes y con un sabor inigualable.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">$5.000 CLP/500g</span>
+                            <button class="btn btn-primary btn-agregar-carrito">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4 product-item" data-category="organicos">
+                <div class="card product-card h-100">
+                    <img src="./images/products/quinoa.jpg" class="card-img-top" alt="Quinua Orgánica">
+                    <div class="card-body">
+                        <h5 class="card-title">Quinua Orgánica <span class="badge bg-verde">PO003</span></h5>
+                        <p class="card-text">Quinua orgánica de alta calidad, rica en proteínas y nutrientes esenciales. Perfecta para una alimentación saludable.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">$3.500 CLP/500g</span>
+                            <button class="btn btn-primary btn-agregar-carrito">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4 product-item" data-category="lacteos">
+                <div class="card product-card h-100">
+                    <img src="./images/products/milk.jpg" class="card-img-top" alt="Leche Entera">
+                    <div class="card-body">
+                        <h5 class="card-title">Leche Entera <span class="badge bg-verde">PL001</span></h5>
+                        <p class="card-text">Leche entera fresca de vacas criadas en praderas naturales. Rica en calcio y vitaminas esenciales.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="price">$1.800 CLP/L</span>
+                            <button class="btn btn-primary btn-agregar-carrito">
+                                <i class="bi bi-cart-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+  <footer class="py-5 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-primary">
+                        <img src="./images/logo.jpg" alt="del campo al hogar" class="logo-navbar">
+                    </h5>
+                    <p class="text-secondary">Llevando la frescura del campo a tu hogar desde 2017.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-primary">Enlaces rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="nosotros.html" class="nav-link">Sobre nosotros</a></li>
+                        <li><a href="tyc.html" class="nav-link">Términos y condiciones</a></li>
+                        <li><a href="#" class="nav-link">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-primary">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="text-secondary"><i class="bi bi-geo-alt-fill me-2"></i>Santiago, Chile</li>
+                        <li class="text-secondary"><i class="bi bi-envelope-fill me-2"></i>contacto@huertohogar.cl</li>
+                        <li class="text-secondary"><i class="bi bi-telephone-fill me-2"></i>+56 2 2345 6789</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <p class="text-center text-secondary mb-0">&copy; 2025 HuertoHogar. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/main.js"></script>
+    <script src="js/productos.js"></script>
+    <script src="js/carrito.js"></script>
+</body>
+</html>

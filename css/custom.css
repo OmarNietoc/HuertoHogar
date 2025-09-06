@@ -12,7 +12,8 @@
 body {
     font-family: 'Montserrat', sans-serif;
     color: var(--gris-oscuro);
-    background-color: var(--fondo-suave);
+    background: var(--fondo-suave) url("../images/textura_papel.jpg") repeat;
+    background-size: auto; /* mantiene el tamaño original de la textura */
     padding-top: 80px; /* Para compensar el navbar fijo */
 }
 
@@ -40,6 +41,7 @@ h1, h2, h3, h4, h5, h6,
 .btn-outline-primary {
     color: var(--verde-esmeralda);
     border-color: var(--verde-esmeralda);
+    background-color: white;
 }
 
 .btn-outline-primary:hover {
@@ -113,6 +115,7 @@ h1, h2, h3, h4, h5, h6,
 .card-img-top {
     border-radius: 12px 12px 0 0;
     height: 200px;
+    padding: 3%;
     object-fit: cover;
 }
 
@@ -149,14 +152,35 @@ footer {
 
 /* Hero section */
 .hero-section {
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/estante.jpg');
+    position: relative;
+    background: 
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+        url('../images/estante.jpg');
     background-size: cover;
     background-position: center;
     color: white;
     padding: 6rem 0;
     margin-bottom: 3rem;
-    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+    z-index: 1;
 }
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        var(--fondo-suave) 100%
+    );
+    z-index: 2;
+}
+
+
 
 .hero-section h1 {
     color: white !important;
@@ -277,4 +301,19 @@ footer {
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
+/* Filtros de categorías */
+.category-filter .btn-outline-primary.active,
+.category-filter .btn-outline-primary:active {
+    background-color: var(--verde-esmeralda) !important;
+    border-color: var(--verde-esmeralda) !important;
+    color: #fff !important;
+}
+
+.category-filter .btn {
+    border-radius: 50px;
+    margin: 0.3rem;
+    padding: 0.5rem 1.2rem;
 }
