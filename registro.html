@@ -60,14 +60,13 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="login-container d-flex align-items-center pt-5 pb-3">
 
         <div class="toast-container position-fixed top-0 end-0 p-3">
             <div id="liveToast" class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="d-flex">
                 <div class="toast-body">
-                    <!-- Aquí se reemplaza dinámicamente el texto desde JS -->
+
                 </div>
                 <button type="button" class="btn-close me-2 m-auto btn-outline-primary" data-bs-dismiss="toast"></button>
                 </div>
@@ -81,13 +80,31 @@
                         <h2 class="text-center mb-4 text-marron">Registrarse</h2>
                         <form id="RegisterForm">
                             <div class="mb-3">
-                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <label for="fullName" class="form-label">Nombre Completo</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    <input type="text" class="form-control" id="fullName" placeholder="Ej: Juan Pérez" required minlength="3" maxlength="50">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label" >Correo Electrónico</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                                     <input type="email" class="form-control" id="email" placeholder="usuario@ejemplo.com" required>
                                 </div>
                                 <div class="form-text">Solo correos @duocuc.cl, @profesor.duoc.cl y @gmail.com</div>
                             </div>
+
+                            <div class="mb-3">
+                                <label for="confirmEmail" class="form-label">Confirmar Correo Electrónico</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope-check"></i></span>
+                                    <input type="email" class="form-control" id="confirmEmail" placeholder="Reingresa tu correo" required>
+                                </div>
+                            </div>
+
+                            <!-- Contraseña -->
                             <div class="mb-4">
                                 <label for="password" class="form-label">Contraseña</label>
                                 <div class="input-group">
@@ -99,7 +116,8 @@
                                 </div>
                                 <div class="form-text">Entre 4 y 10 caracteres</div>
                             </div>
-                            
+
+                            <!-- Confirmar Contraseña -->
                             <div class="mb-4">
                                 <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
                                 <div class="input-group">
@@ -110,16 +128,44 @@
                                     </button>
                                 </div>
                                 <div class="form-text">Debe coincidir con la contraseña ingresada</div>
-
-
                             </div>
 
+                          
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Número de Teléfono (opcional)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                    <input type="tel" class="form-control" id="phone" placeholder="+56 9 1234 5678">
+                                </div>
+                            </div>
+
+                      
+                            <div class="mb-3">
+                                <label for="region" class="form-label">Región</label>
+                                <select id="region" class="form-select" required>
+                                    <option value="">Seleccione una región</option>
+                                 
+                                </select>
+                            </div>
+
+                         
+                            <div class="mb-3">
+                                <label for="comuna" class="form-label">Comuna</label>
+                                <select id="comuna" class="form-select" required>
+                                    <option value="">Seleccione una comuna</option>
+                                    
+                                </select>
+                            </div>
+
+                            
                             <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <input type="checkbox" class="form-check-input" id="rememberMe" required>
                                 <label class="form-check-label" for="rememberMe">Acepto términos y condiciones</label>
                             </div>
+
+                
                             <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Ingresar</button>
+                                <button type="submit" class="btn btn-primary">Registrarse</button>
                             </div>
                         </form>
                     </div>
@@ -164,4 +210,4 @@
     <script src="js/main.js"></script>
     <script src="js/registro.js"></script>
 </body>
-</html>
+</html>>

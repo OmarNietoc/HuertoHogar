@@ -1,5 +1,5 @@
-/* custom.css - Estilos personalizados para HuertoHogar */
 
+/* ===================== Variables ===================== */
 :root {
     --verde-esmeralda: #2E8B57;
     --amarillo-mostaza: #FFD700;
@@ -9,27 +9,31 @@
     --fondo-suave: #F7F7F7;
 }
 
+/* ===================== Body ===================== */
 body {
     font-family: 'Montserrat', sans-serif;
     color: var(--gris-oscuro);
-    background: var(--fondo-suave) url("../images/textura_papel.jpg") repeat;
-    background-size: auto; /* mantiene el tamaño original de la textura */
-    padding-top: 80px; /* Para compensar el navbar fijo */
+    background-color: var(--fondo-suave);
+    background-image: url("../images/textura_papel.jpg");
+    background-repeat: repeat;
+    background-size: auto;
+    padding-top: 80px;
 }
 
+/* ===================== Títulos ===================== */
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: 'Playfair Display', serif;
     color: var(--marron-claro);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
 
-/* Botones personalizados */
+/* ===================== Botones ===================== */
 .btn-primary {
     background-color: var(--verde-esmeralda);
     border-color: var(--verde-esmeralda);
     color: white;
 }
-
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
@@ -37,32 +41,18 @@ h1, h2, h3, h4, h5, h6,
     border-color: #267349;
     color: white;
 }
-
 .btn-outline-primary {
     color: var(--verde-esmeralda);
     border-color: var(--verde-esmeralda);
     background-color: white;
+    border-color: #267349;
 }
-
 .btn-outline-primary:hover {
     background-color: var(--verde-esmeralda);
     color: white;
 }
 
-/* Navbar personalizado */
-
-.logo-navbar {
-  height: 90px;   /* tamaño base en móviles */
-  width: auto;    /* mantiene la proporción */
-  max-height: 100px; /* seguridad por si la imagen es enorme */
-}
-
-@media (min-width: 992px) {
-  .logo-navbar {
-    height: 80px; 
-  }
-}
-
+/* ===================== Navbar ===================== */
 .navbar {
     background-color: white;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -71,91 +61,123 @@ h1, h2, h3, h4, h5, h6,
     width: 100%;
     z-index: 1000;
 }
-
 .navbar-brand {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     color: var(--verde-esmeralda) !important;
     font-size: 1.8rem;
 }
-
 .nav-link {
     color: var(--gris-oscuro) !important;
     font-weight: 500;
 }
-
 .nav-link:hover,
 .nav-link.active {
     color: var(--verde-esmeralda) !important;
 }
+.logo-navbar {
+    height: 90px;
+    width: auto;
+    max-height: 100px;
+}
+@media (min-width: 992px) {
+    .logo-navbar {
+        height: 80px;
+    }
+}
 
-/* Badges personalizados */
+/* ===================== Badges ===================== */
 .badge.bg-primary {
     background-color: var(--verde-esmeralda) !important;
 }
-
-/* Cards personalizadas */
-.card {
-    border: none;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
-    border-radius: 12px;
+.offer-badge {
+    background-color: var(--amarillo-mostaza);
+    color: var(--gris-oscuro);
+    font-weight: 600;
+    padding: 0.5em 0.8em;
 }
 
+/* ===================== Cards ===================== */
+.card, .main-content, .login-card {
+    border: none;
+    border-radius: 12px;
+    background-color: #FFFFFF; /* Fondo sólido para legibilidad */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
-
 .card-title {
     color: var(--marron-claro);
     font-weight: 600;
 }
-
 .card-img-top {
     border-radius: 12px 12px 0 0;
     height: 200px;
     padding: 3%;
     object-fit: cover;
 }
+.product-card .price {
+    color: var(--verde-esmeralda);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
 
-/* Formularios personalizados */
+/* ===================== Formularios ===================== */
 .form-control:focus {
     border-color: var(--verde-esmeralda);
     box-shadow: 0 0 0 0.25rem rgba(46, 139, 87, 0.25);
 }
 
-/* Footer personalizado */
+/* ===================== Footer ===================== */
 footer {
     background-color: white;
     border-top: 1px solid rgba(0,0,0,0.1);
     margin-top: auto;
 }
+.text-primary { color: var(--verde-esmeralda) !important; }
+.text-secondary { color: var(--gris-medio) !important; }
 
-/* Colores de texto personalizados */
-.text-primary {
-    color: var(--verde-esmeralda) !important;
-}
+/* ===================== Backgrounds ===================== */
+.bg-primary { background-color: var(--verde-esmeralda) !important; }
+.bg-light { background-color: var(--fondo-suave) !important; }
 
-.text-secondary {
-    color: var(--gris-medio) !important;
-}
-
-/* Backgrounds personalizados */
-.bg-primary {
-    background-color: var(--verde-esmeralda) !important;
-}
-
-.bg-light {
-    background-color: var(--fondo-suave) !important;
-}
-
-/* Hero section */
+/* ===================== Hero Section ===================== */
 .hero-section {
     position: relative;
-    background: 
-        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-        url('../images/estante.jpg');
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/estante.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 6rem 0;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    z-index: 1;
+}
+.hero-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, var(--fondo-suave) 100%);
+    z-index: 2;
+}
+.hero-section h1 {
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.hero-section p {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.hero-personal{
+    
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/personalHuerto.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -165,67 +187,36 @@ footer {
     z-index: 1;
 }
 
-.hero-section::after {
+.hero-personal::after {
     content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 50px;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0) 0%,
-        var(--fondo-suave) 100%
-    );
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, var(--fondo-suave) 100%);
     z-index: 2;
 }
 
-
-
-.hero-section h1 {
-    color: white !important;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.hero-section p {
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
+/* ===================== Login ===================== */
 .login-container {
-            padding-top: 10px;
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-        }
-
+    padding-top: 10px;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
 .login-card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            padding: 2rem;
-        }
-
-/* Product card styles */
-.product-card .price {
-    color: var(--verde-esmeralda);
-    font-weight: 600;
-    font-size: 1.2rem;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 2rem;
 }
 
-/* Ofertas especiales */
-.offer-badge {
-    background-color: var(--amarillo-mostaza);
-    color: var(--gris-oscuro);
-    font-weight: 600;
-    padding: 0.5em 0.8em;
-}
-
-/* Estilos para el carrito */
+/* ===================== Carrito ===================== */
 .cart-icon {
     position: relative;
     text-decoration: none !important;
 }
-
 .cart-count {
     position: absolute;
     top: -8px;
@@ -242,76 +233,52 @@ footer {
     font-weight: bold;
 }
 
-/* Estilos para la sección de contacto */
-.contact-info i {
-    color: var(--verde-esmeralda);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
+/* ===================== Contacto ===================== */
+.contact-info i { color: var(--verde-esmeralda); font-size: 1.5rem; margin-bottom: 1rem; }
+.map-container { border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
 
-/* Estilos para el mapa */
-.map-container {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
+/* ===================== Utilidades ===================== */
+.bg-verde { background-color: var(--verde-esmeralda); }
+.text-verde { color: var(--verde-esmeralda); }
+.bg-marron { background-color: var(--marron-claro); }
+.text-marron { color: var(--marron-claro); }
 
-/* Utilidades adicionales */
-.bg-verde {
-    background-color: var(--verde-esmeralda);
-}
-
-.text-verde {
-    color: var(--verde-esmeralda);
-}
-
-.bg-marron {
-    background-color: var(--marron-claro);
-}
-
-.text-marron {
-    color: var(--marron-claro);
-}
-
-/* Estilos responsivos adicionales */
+/* ===================== Responsivo ===================== */
 @media (max-width: 768px) {
-    .hero-section {
-        padding: 4rem 0;
+    .hero-section { padding: 4rem 0; }
+    .display-4 { font-size: 2.5rem; }
+    .navbar-brand { font-size: 1.5rem; }
+    body { padding-top: 70px; }
+}
+
+@media (max-width: 767px) {
+    .producto-info {
+        margin-top: 1.5rem;
     }
-    
-    .display-4 {
-        font-size: 2.5rem;
-    }
-    
-    .navbar-brand {
+}
+
+@media (max-width: 767px) {
+    #producto-nombre {
         font-size: 1.5rem;
     }
-    
-    body {
-        padding-top: 70px;
+    #producto-precio {
+        font-size: 1.25rem;
     }
 }
 
-/* Mejoras de accesibilidad */
-.btn:focus,
-.form-control:focus {
-    outline: none;
-}
+/* ===================== Accesibilidad ===================== */
+.btn:focus, .form-control:focus { outline: none; }
 
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-    overflow-y: scroll;
-}
+/* ===================== Smooth Scrolling ===================== */
+html { scroll-behavior: smooth; overflow-y: scroll; }
 
-/* Filtros de categorías */
+/* ===================== Filtros de Categoría ===================== */
 .category-filter .btn-outline-primary.active,
 .category-filter .btn-outline-primary:active {
     background-color: var(--verde-esmeralda) !important;
     border-color: var(--verde-esmeralda) !important;
     color: #fff !important;
 }
-
 .category-filter .btn {
     border-radius: 50px;
     margin: 0.3rem;

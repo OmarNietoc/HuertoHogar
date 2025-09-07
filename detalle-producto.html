@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huerto Hogar - Detalle</title>
+ 
+    <link rel="icon" href="./images/icon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./images/icon.ico">
+    <link rel="shortcut icon" href="./images/icon.ico" type="image/x-icon">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"></noscript>
+    
+    <link rel="stylesheet" href="css/custom.css">
+
+</head>
+<body data-page="detalle-producto">
+    
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./images/logo.jpg" alt="del campo al hogar" class="logo-navbar">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blogs.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+                <div id="LoginRegister" class="d-none d-flex align-items-center">
+                    <a href="login.html" class="btn btn-outline-primary me-2">Ingresar</a>
+                    <a href="registro.html" class="btn btn-primary me-3">Registrarse</a>
+                    <a href="carrito.html" class="btn btn-link position-relative cart-icon">
+                        <i class="bi bi-cart3" style="font-size: 1.5rem;"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+                <div id="userLoggedIn" class="d-none d-flex align-items-center" style="display: none;">
+                    <span class="me-2 text-secondary">Bienvenido, </span>
+                    <span class="user-email me-3 text-verde fw-bold"></span>
+                    <a href="carrito.html" class="btn btn-link position-relative cart-icon me-2">
+                        <i class="bi bi-cart3" style="font-size: 1.5rem;"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="btn btn-outline-secondary btn-sm" onclick="cerrarSesion()">
+                        <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+    <!-- Sección principal del producto -->
+    <section class="bg-light py-5 px-4 rounded shadow-sm">
+        <div class="row g-4">
+            <!-- Imagen del producto -->
+            <div class="col-md-6">
+                <img id="producto-imagen" src="" alt="Producto" class="img-fluid rounded">
+            </div>
+
+            <!-- Información del producto -->
+            <div class="col-md-6 d-flex flex-column justify-content-start producto-info">
+                <h2 id="producto-nombre"></h2>
+                <p class="text-secondary" id="producto-codigo"></p>
+                <p id="producto-descripcion"></p>
+                <h3 id="producto-precio"></h3>
+
+                <!-- Selector de cantidad -->
+                <div class="d-flex align-items-center mb-3">
+                    <input type="number" id="cantidad" value="1" min="1" class="form-control mt-3" style="width: 15%;">
+                    
+                </div>
+
+                <!-- Botón agregar al carrito -->
+                <button class="btn btn-primary btn-agregar-carrito">Añadir al carrito</button>
+            </div>
+        </div>
+
+        <!-- Sección categoría -->
+        <div class="row mt-5">
+            <div class="col">
+                <p class="fw-semibold">Categoría: <span id="producto-categoria"></span></p>
+                <p id="producto-categoria-descripcion"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección productos relacionados -->
+    <div class="row mt-4">
+        <div class="col">
+            <h5>Otros usuarios también llevaron:</h5>
+            <div id="productos-relacionados" class="d-flex flex-wrap gap-3">
+                <!-- Aquí JS agregará las tarjetas de productos de la misma categoría -->
+            </div>
+        </div>
+    </div>
+</main>
+    
+
+    <footer class="py-5 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-primary">
+                        <img src="./images/logo.jpg" alt="del campo al hogar" class="logo-navbar">
+                    </h5>
+                    <p class="text-secondary">Llevando la frescura del campo a tu hogar desde 2017.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-primary">Enlaces rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="nosotros.html" class="nav-link">Sobre nosotros</a></li>
+                        <li><a href="tyc.html" class="nav-link">Términos y condiciones</a></li>
+                        <li><a href="#" class="nav-link">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-primary">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="text-secondary"><i class="bi bi-geo-alt-fill me-2"></i>Santiago, Chile</li>
+                        <li class="text-secondary"><i class="bi bi-envelope-fill me-2"></i>contacto@huertohogar.cl</li>
+                        <li class="text-secondary"><i class="bi bi-telephone-fill me-2"></i>+56 2 2345 6789</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <p class="text-center text-secondary mb-0">&copy; 2025 HuertoHogar. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/main.js"></script>
+    <script src="js/categoriasArray.js"></script>
+    <script src="js/productosArray.js"></script>
+    <script src="js/detalleProducto.js"></script>
+    <script src="js/carrito.js"></script>
+</body>
+</html>
