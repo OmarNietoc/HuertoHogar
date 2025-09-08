@@ -67,31 +67,36 @@ relacionados.forEach(p => {
 });
 
     const btnAgregar = document.querySelector('.btn-agregar-carrito');
-    btnAgregar.addEventListener('click', () => {
-        const cantidad = parseInt(document.getElementById('cantidad').value);
-        if (isNaN(cantidad) || cantidad < 1) return;
+btnAgregar.addEventListener('click', () => {
+    const cantidad = parseInt(document.getElementById('cantidad').value);
+    if (isNaN(cantidad) || cantidad < 1) return;
 
-        let carrito = JSON.parse(localStorage.getItem('carritoHuertoHogar')) || [];
+    let carrito = JSON.parse(localStorage.getItem('carritoHuertoHogar')) || [];
 
-        const itemIndex = carrito.findIndex(item => item.id === producto.id);
-        if (itemIndex > -1) {
-            carrito[itemIndex].cantidad += cantidad;
-        } else {
-            carrito.push({
-                id: producto.id,
-                nombre: producto.nombre,
-                precio: producto.precio,
-                imagen: producto.imagen,
-                cantidad: cantidad
-            });
-        }
+    const itemIndex = carrito.findIndex(item => item.id === producto.id);
+    if (itemIndex > -1) {
+        carrito[itemIndex].cantidad += cantidad;
+    } else {
+        carrito.push({
+            id: producto.id,
+            nombre: producto.nombre,
+            precio: producto.precio,
+            imagen: producto.imagen,
+            descripcion: producto.descripcion,
+            cantidad: cantidad
+        });
+    }
 
-        localStorage.setItem('carritoHuertoHogar', JSON.stringify(carrito));
+    localStorage.setItem('carritoHuertoHogar', JSON.stringify(carrito));
 
-        const cartCount = document.querySelectorAll('.cart-count');
-        const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-        cartCount.forEach(el => el.textContent = totalItems);
-
-        mostrarAlerta(`${cantidad} ${producto.nombre} agregado${cantidad > 1 ? 's' : ''} al carrito`, 'success');
+    const cartCount = document.querySelectorAll('.cart-count');
+    const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+    cartCount.forEach(el => {
+        el.textContent = totalItems;
+        el.style.display = totalItems > 0 ? 'flex' : 'none';
     });
+
+    mostrarAlerta(`${cantidad} ${producto.nombre} agregado${cantidad > 1 ? 's' : ''} al carrito`, 'success');
+});
+
 });
