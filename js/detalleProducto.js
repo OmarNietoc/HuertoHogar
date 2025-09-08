@@ -29,7 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const relacionadosContainer = document.getElementById('productos-relacionados');
-const relacionados = productos.filter(p => p.categoria === producto.categoria && p.id !== productId);
+var relacionados = productos.filter(p => p.categoria === producto.categoria && p.id !== productId);
+if (relacionados.length === 0) {
+    relacionados = productos.filter(p => p.categoria === 'organicos' && p.id !== productId);
+}
 
 relacionadosContainer.style.display = 'flex';
 relacionadosContainer.style.overflowX = 'auto';
@@ -50,7 +53,14 @@ relacionados.forEach(p => {
         </a>
         <div class="card-body p-2">
             <h6 class="card-title text-truncate" title="${p.nombre}">${p.nombre} <span class="badge bg-verde">${p.id}</span></h6>
-            <p class="price text-verde mb-0">$${p.precio.toLocaleString()}</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="price text-verde mb-0">$${p.precio.toLocaleString()}</p>
+                <a href="detalle-producto.html?productId=${p.id}">
+                    <button class="btn btn-primary btn-agregar-carrito">
+                        <i class="bi bi-cart-plus"></i> Añadir
+                    </button>
+                </a>
+            </div>
         </div>
     `;
     relacionadosContainer.appendChild(card);

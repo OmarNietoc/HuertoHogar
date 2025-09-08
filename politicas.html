@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HuertoHogar - Politicas de privacidad</title>
+
+  
+  <link rel="icon" href="./images/icon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="./images/icon.ico" />
+  <link rel="shortcut icon" href="./images/icon.ico" type="image/x-icon" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+
+  
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"></noscript>
+
+  <link rel="stylesheet" href="css/custom.css" />
+</head>
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="./images/logo.jpg" alt="HuertoHogar" class="logo-navbar">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <div id="LoginRegister" class="d-flex align-items-center">
+          <a href="login.html" class="btn btn-outline-primary me-2">Ingresar</a>
+          <a href="registro.html" class="btn btn-primary me-3">Registrarse</a>
+          <a href="carrito.html" class="btn btn-link position-relative cart-icon">
+            <i class="bi bi-cart3" style="font-size:1.5rem;"></i>
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+        <div id="userLoggedIn" class="d-none d-flex align-items-center">
+          <span class="me-2 text-secondary">Bienvenido, </span>
+          <span class="user-email me-3 text-verde fw-bold"></span>
+          <a href="carrito.html" class="btn btn-link position-relative cart-icon me-2">
+            <i class="bi bi-cart3" style="font-size:1.5rem;"></i>
+            <span class="cart-count">0</span>
+          </a>
+          <button class="btn btn-outline-secondary btn-sm" onclick="cerrarSesion()">
+            <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HuertoHogar - Política de Privacidad</title>
+
+  <link rel="icon" href="./images/icon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="./images/icon.ico" />
+  <link rel="shortcut icon" href="./images/icon.ico" type="image/x-icon" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"/>
+
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"></noscript>
+
+  <link rel="stylesheet" href="css/custom.css" />
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="./images/logo.jpg" alt="HuertoHogar" class="logo-navbar">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <div id="LoginRegister" class="d-flex align-items-center">
+          <a href="login.html" class="btn btn-outline-primary me-2">Ingresar</a>
+          <a href="registro.html" class="btn btn-primary me-3">Registrarse</a>
+          <a href="carrito.html" class="btn btn-link position-relative cart-icon">
+            <i class="bi bi-cart3" style="font-size:1.5rem;"></i>
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+        <div id="userLoggedIn" class="d-none d-flex align-items-center">
+          <span class="me-2 text-secondary">Bienvenido, </span>
+          <span class="user-email me-3 text-verde fw-bold"></span>
+          <a href="carrito.html" class="btn btn-link position-relative cart-icon me-2">
+            <i class="bi bi-cart3" style="font-size:1.5rem;"></i>
+            <span class="cart-count">0</span>
+          </a>
+          <button class="btn btn-outline-secondary btn-sm" onclick="cerrarSesion()">
+            <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="py-5 bg-light border-bottom">
+    <div class="container text-center">
+      <h1 class="display-5 fw-bold" style="font-family:'Playfair Display',serif;">Política de Privacidad</h1>
+      <p class="text-secondary mb-0">Última actualización: 2025</p>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    <section class="bg-light py-5 px-4 rounded shadow-sm">
+        <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <section class="mb-5">
+            <h2 class="fw-bold text-primary">1. Introducción</h2>
+            <p class="text-secondary">En Huerto Hogar respetamos tu privacidad y nos comprometemos a proteger los datos personales que compartes con nosotros. Esta política explica cómo recopilamos, usamos y protegemos tu información.</p>
+            </section>
+
+            <section class="mb-5">
+            <h2 class="fw-bold text-primary">2. Información que recopilamos</h2>
+            <ul class="text-secondary">
+                <li>Datos de contacto: nombre, correo electrónico, teléfono y dirección.</li>
+                <li>Información de acceso: correo y contraseña registrados.</li>
+                <li>Datos de compra: historial de pedidos y métodos de pago.</li>
+                <li>Preferencias de usuario: productos favoritos y navegación en el sitio.</li>
+            </ul>
+            </section>
+
+            <section class="mb-5">
+            <h2 class="fw-bold text-primary">3. Uso de la información</h2>
+            <p class="text-secondary">La información recopilada se utiliza para:</p>
+            <ul class="text-secondary">
+                <li>Procesar y entregar tus pedidos.</li>
+                <li>Gestionar tu cuenta de usuario.</li>
+                <li>Mejorar tu experiencia en el sitio web.</li>
+                <li>Enviar promociones, novedades y comunicaciones relacionadas.</li>
+            </ul>
+            </section>
+
+            <section class="mb-5">
+            <h2 class="fw-bold text-primary">4. Protección de datos</h2>
+            <p class="text-secondary">Implementamos medidas de seguridad técnicas y organizativas para proteger tu información contra accesos no autorizados, pérdida o alteración. Sin embargo, recuerda que ningún sistema es 100% seguro.</p>
+            </section>
+
+            <section class="mb-5">
+            <h2 class="fw-bold text-primary">5. Compartir información</h2>
+            <p class="text-secondary">HuertoHogar no vende ni alquila tus datos personales. Podemos compartir tu información únicamente con:</p>
+            <ul class="text-secondary">
+                <li>Proveedores de servicios de envío y pago.</li>
+                <li>Autoridades legales, si la ley lo requiere.</li>
+            </ul>
+            </section>
+
+            <section class="mb-5">
+            <h2 class="fw-bold text-primary">6. Derechos del usuario</h2>
+            <p class="text-secondary">Tienes derecho a:</p>
+            <ul class="text-secondary">
+                <li>Acceder, rectificar o eliminar tus datos personales.</li>
+                <li>Solicitar la limitación del uso de tus datos.</li>
+                <li>Retirar tu consentimiento en cualquier momento.</li>
+            </ul>
+            </section>
+
+            <section>
+            <h2 class="fw-bold text-primary">7. Contacto</h2>
+            <p class="text-secondary">Si tienes preguntas sobre esta política, puedes escribirnos a: <strong>contacto@huertohogar.cl</strong></p>
+            </section>
+        </div>
+        </div>
+        </section>
+    </main>
+
+  <footer class="py-5 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-primary">
+                        <img src="./images/logo.jpg" alt="del campo al hogar" class="logo-navbar">
+                    </h5>
+                    <p class="text-secondary">Llevando la frescura del campo a tu hogar desde 2017.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-primary">Enlaces rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="nosotros.html" class="nav-link">Sobre nosotros</a></li>
+                        <li><a href="tyc.html" class="nav-link">Términos y condiciones</a></li>
+                        <li><a href="#" class="nav-link">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-primary">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="text-secondary"><i class="bi bi-geo-alt-fill me-2"></i>Santiago, Chile</li>
+                        <li class="text-secondary"><i class="bi bi-envelope-fill me-2"></i>contacto@huertohogar.cl</li>
+                        <li class="text-secondary"><i class="bi bi-telephone-fill me-2"></i>+56 2 2345 6789</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <p class="text-center text-secondary mb-0">&copy; 2025 HuertoHogar. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,3 +1,30 @@
+function mostrarAlerta(mensaje, tipo = "success") {
+  let contenedor = document.getElementById("alert-container");
+  if (!contenedor) {
+    contenedor = document.createElement("div");
+    contenedor.id = "alert-container";
+    contenedor.style.position = "fixed";
+    contenedor.style.top = "20px";
+    contenedor.style.right = "20px";
+    contenedor.style.zIndex = "1050";
+    document.body.appendChild(contenedor);
+  }
+
+  const alerta = document.createElement("div");
+  alerta.className = `alert alert-${tipo} alert-dismissible fade show`;
+  alerta.role = "alert";
+  alerta.innerHTML = `
+    ${mensaje}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+  `;
+
+  contenedor.appendChild(alerta);
+
+  setTimeout(() => {
+    alerta.remove();
+  }, 6000);
+}
+
 function inicializarLogin() {
     console.log('Página de login inicializada');
     
@@ -22,7 +49,7 @@ function manejarLogin(e) {
     const usuarioValido = usuarios.find(user => user.email === email && user.password === password);
 
     if (!usuarioValido) {
-        mostrarAlerta("Correo o contraseña incorrectos", "error");
+        mostrarAlerta("Correo o contraseña incorrectos", "danger");
         return;
     }
 
@@ -36,7 +63,7 @@ function manejarLogin(e) {
 }
 
 function validarEmail(email) {
-    const emailRegex = /^[^\s@]+@(duocuc\.cl|profesor\.duoc\.cl|gmail\.com)$/;
+    const emailRegex = /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/;
     return emailRegex.test(email);
 }
 

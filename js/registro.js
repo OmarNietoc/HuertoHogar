@@ -1,3 +1,30 @@
+function mostrarAlerta(mensaje, tipo = "success") {
+  let contenedor = document.getElementById("alert-container");
+  if (!contenedor) {
+    contenedor = document.createElement("div");
+    contenedor.id = "alert-container";
+    contenedor.style.position = "fixed";
+    contenedor.style.top = "20px";
+    contenedor.style.right = "20px";
+    contenedor.style.zIndex = "1050";
+    document.body.appendChild(contenedor);
+  }
+
+  const alerta = document.createElement("div");
+  alerta.className = `alert alert-${tipo} alert-dismissible fade show`;
+  alerta.role = "alert";
+  alerta.innerHTML = `
+    ${mensaje}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+  `;
+
+  contenedor.appendChild(alerta);
+
+  setTimeout(() => {
+    alerta.remove();
+  }, 6000);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const registerForm = document.getElementById("RegisterForm");
     if (!registerForm) return; 
@@ -10,14 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const regionSelect = document.getElementById("region");
     const comunaSelect = document.getElementById("comuna");
 
-    const regionesComunas = {
-        "Región Metropolitana": ["Santiago", "Puente Alto", "Maipú", "La Florida", "Las Condes"],
-        "Valparaíso": ["Valparaíso", "Viña del Mar", "Quilpué", "Villa Alemana"],
-        "Biobío": ["Concepción", "Talcahuano", "Chillán"],
-        "Antofagasta": ["Antofagasta", "Calama", "Mejillones"]
-    };
 
-    // Llenar regiones
     Object.keys(regionesComunas).forEach(region => {
         const option = document.createElement("option");
         option.value = region;
@@ -25,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
         regionSelect.appendChild(option);
     });
 
-    // Cambiar comunas según la región seleccionada
     regionSelect.addEventListener("change", () => {
         comunaSelect.innerHTML = '<option value="">Seleccione una comuna</option>';
         const comunas = regionesComunas[regionSelect.value] || [];
@@ -37,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Toggle mostrar/ocultar contraseña
     togglePassword.addEventListener("click", () => {
         togglePasswordType(passwordInput, togglePassword);
     });
@@ -57,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Validación y envío del formulario
     registerForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -72,49 +89,49 @@ document.addEventListener("DOMContentLoaded", () => {
         const rememberMe = document.getElementById("rememberMe").checked;
 
         if (fullName.length < 3) {
-            mostrarAlerta("El nombre completo debe tener al menos 3 caracteres", "error");
+            mostrarAlerta("El nombre completo debe tener al menos 3 caracteres", "danger");
             return;
         }
 
         if (!validarEmail(email)) {
-            mostrarAlerta("Correo inválido. Solo @duocuc.cl, @profesor.duoc.cl y @gmail.com", "error");
+            mostrarAlerta("Correo inválido. Solo @duoc.cl, @profesor.duoc.cl y @gmail.com", "danger");
             return;
         }
 
         if (email !== confirmEmail) {
-            mostrarAlerta("Los correos electrónicos no coinciden", "error");
+            mostrarAlerta("Los correos electrónicos no coinciden", "danger");
             return;
         }
 
         if (password.length < 4 || password.length > 10) {
-            mostrarAlerta("La contraseña debe tener entre 4 y 10 caracteres", "error");
+            mostrarAlerta("La contraseña debe tener entre 4 y 10 caracteres", "danger");
             return;
         }
 
         if (password !== confirmPassword) {
-            mostrarAlerta("Las contraseñas no coinciden", "error");
+            mostrarAlerta("Las contraseñas no coinciden", "danger");
             return;
         }
 
         if (!region) {
-            mostrarAlerta("Debes seleccionar una región", "error");
+            mostrarAlerta("Debes seleccionar una región", "danger");
             return;
         }
 
         if (!comuna) {
-            mostrarAlerta("Debes seleccionar una comuna", "error");
+            mostrarAlerta("Debes seleccionar una comuna", "danger");
             return;
         }
 
         if (!rememberMe) {
-            mostrarAlerta("Debes aceptar los términos y condiciones", "error");
+            mostrarAlerta("Debes aceptar los términos y condiciones", "danger");
             return;
         }
 
         let usuarios = JSON.parse(localStorage.getItem("usuariosHuertoHogar")) || [];
         
         if (usuarios.some(user => user.email === email)) {
-            mostrarAlerta("Este correo ya está registrado", "error");
+            mostrarAlerta("Este correo ya está registrado", "danger");
             return;
         }
 
@@ -129,21 +146,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function validarEmail(email) {
-        const emailRegex = /^[^\s@]+@(duocuc\.cl|profesor\.duoc\.cl|gmail\.com)$/;
+        const emailRegex = /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/;
         return emailRegex.test(email);
     }
 
-    function mostrarAlerta(mensaje, tipo) {
-        const toastEl = document.getElementById("liveToast");
-        const toastBody = toastEl.querySelector(".toast-body");
-        toastBody.textContent = mensaje;
-
-        toastEl.classList.remove("text-bg-success", "text-bg-danger", "text-bg-primary");
-        if (tipo === "success") toastEl.classList.add("text-bg-success");
-        else if (tipo === "error") toastEl.classList.add("text-bg-danger");
-        else toastEl.classList.add("text-bg-primary");
-
-        const toast = new bootstrap.Toast(toastEl);
-        toast.show();
-    }
 });

@@ -1,4 +1,3 @@
-// productosArray.js
 
 const productos = [
     {
