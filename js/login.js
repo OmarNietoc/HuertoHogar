@@ -13,28 +13,72 @@ function inicializarLogin() {
     }
 }
 
+// function manejarLogin(e) {
+//     e.preventDefault();
+
+//     const email = document.getElementById("email").value.trim();
+//     const password = document.getElementById("password").value.trim();
+
+//     let usuarios = JSON.parse(localStorage.getItem("usuariosHuertoHogar")) || [];
+//     const usuarioValido = usuarios.find(user => user.email === email && user.password === password);
+
+//     if (!usuarioValido) {
+//         mostrarAlerta("Correo o contraseña incorrectos", "danger");
+//         return;
+//     }
+
+    
+
+//     // Login exitoso
+//     iniciarSesion(email);
+//     mostrarAlerta("¡Inicio de sesión exitoso!", "success");
+
+//     setTimeout(() => {
+//         window.location.href = "index.html";
+//     }, 1500);
+// }
+
 function manejarLogin(e) {
     e.preventDefault();
 
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
 
+    // Traemos usuarios desde localStorage o desde el array global usuariosArray.js
     let usuarios = JSON.parse(localStorage.getItem("usuariosHuertoHogar")) || [];
+    if (typeof usuariosArray !== "undefined") {
+        usuarios = [...usuarios, ...usuariosArray]; // combina los dos orígenes
+    }
+    console.log('Usuarios cargados:', usuarios);
+    console.log("usuarios array:", usuariosArray);
+
     const usuarioValido = usuarios.find(user => user.email === email && user.password === password);
 
     if (!usuarioValido) {
-        mostrarAlerta("Correo o contraseña incorrectos", "danger");
+        mostrarAlerta("❌ Correo o contraseña incorrectos", "danger");
         return;
     }
 
-    // Login exitoso
+    // Guardar sesión en localStorage
     iniciarSesion(email);
-    mostrarAlerta("¡Inicio de sesión exitoso!", "success");
+    if (usuarioValido.rol === "admin") {
+        localStorage.setItem("isAdmin", "true");
+        mostrarAlerta("✅ Bienvenido Administrador", "success");
 
-    setTimeout(() => {
-        window.location.href = "index.html";
-    }, 1500);
+        setTimeout(() => {
+            window.location.href = "home.html";
+        }, 1200);
+    } else {
+        localStorage.setItem("isAdmin", "false");
+        mostrarAlerta("👋 Inicio de sesión exitoso", "success");
+
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 1200);
+    }
 }
+
+
 
 function validarEmail(email) {
     const emailRegex = /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/;

@@ -24,11 +24,22 @@ function verificarEstadoLogin() {
     const loginRegisterDiv = document.getElementById('LoginRegister');
     const userLoggedInDiv = document.getElementById('userLoggedIn');
     const userEmail = localStorage.getItem('userEmail');
-    
+    const isAdmin = localStorage.getItem('isAdmin');
+    const panelAdmin = document.getElementById('panelAdmin');
+
+
+
     if (usuarioLogueado === 'true') {
         // Mostrar bloque de usuario logueado
         userLoggedInDiv.classList.remove('d-none');
         userLoggedInDiv.classList.add('d-flex');
+
+      if(isAdmin === 'true'){
+        panelAdmin.classList.remove('d-none');
+        panelAdmin.classList.add('d-flex');
+      } else {
+        panelAdmin.classList.add('d-none');
+      }
 
         // Ocultar login/registro
         loginRegisterDiv.classList.add('d-none');
