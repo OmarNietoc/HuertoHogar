@@ -20,7 +20,7 @@ function inicializarCarrito() {
             mostrarAlerta("✅ Gracias por tu compra. Tu pedido está en camino.", "success");
             localStorage.removeItem("carritoHuertoHogar");
             renderizarCarrito();
-            actualizarContadorCarrito(0); // <-- ahora sí en cero
+            actualizarContadorCarrito(carrito); 
         });
 }
 }

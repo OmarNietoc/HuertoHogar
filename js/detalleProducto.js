@@ -3,10 +3,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('productId');
+    let productos = JSON.parse(localStorage.getItem("productosHuertoHogar")) || [];
 
     if (!productId) return;
 
-    const producto = productosArray.find(p => p.id === productId);
+    const producto = productos.find(p => p.id === productId);
     if (!producto) {
         console.error('Producto no encontrado');
         return;
@@ -29,9 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const relacionadosContainer = document.getElementById('productos-relacionados');
-var relacionados = productosArray.filter(p => p.categoria === producto.categoria && p.id !== productId);
+var relacionados = productos.filter(p => p.categoria === producto.categoria && p.id !== productId);
 if (relacionados.length === 0) {
-    relacionados = productosArray.filter(p => p.categoria === 'organicos' && p.id !== productId);
+    relacionados = productos.filter(p => p.categoria === 'organicos' && p.id !== productId);
 }
 
 relacionadosContainer.style.display = 'flex';

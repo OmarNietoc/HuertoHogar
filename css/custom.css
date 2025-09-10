@@ -690,3 +690,58 @@ html { scroll-behavior: smooth; overflow-y: scroll; }
     background-color: rgba(46, 139, 87, 0.1) !important;
     border-left: 3px solid var(--verde-esmeralda);
 }
+
+/* ===================== LOADING Y ESTADOS ===================== */
+#loading {
+    transition: opacity 0.3s ease;
+}
+
+#no-products {
+    transition: opacity 0.3s ease;
+}
+
+.spinner-border.text-verde {
+    color: var(--verde-esmeralda) !important;
+}
+
+/* Mejoras para la búsqueda */
+#searchInput:focus {
+    border-color: var(--verde-esmeralda);
+    box-shadow: 0 0 0 0.25rem rgba(46, 139, 87, 0.25);
+}
+
+/* Transiciones suaves para filtros */
+.product-item {
+    transition: all 0.3s ease;
+}
+
+.product-item[style*="display: none"] {
+    opacity: 0;
+    transform: scale(0.95);
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Mejoras para cards de productos */
+.product-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Responsividad mejorada */
+@media (max-width: 768px) {
+    .product-search .form-control {
+        width: 100% !important;
+    }
+    
+    .category-filter .btn {
+        margin: 0.2rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
