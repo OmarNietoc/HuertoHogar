@@ -1,5 +1,9 @@
 # 🌱 HuertoHogar - E-commerce de Productos Frescos
 
+##USUARIO ADMIN PARA PRUEBAS:
+correo:admin@gmail.com
+contraseña:1234
+
 ## 📋 Descripción del Proyecto
 
 **HuertoHogar** es una tienda online chilena dedicada a conectar a las familias con productos frescos directamente del campo. Con más de 6 años de experiencia y presencia en 9 ciudades de Chile, nuestra plataforma ofrece una experiencia de compra intuitiva y confiable para quienes buscan calidad y frescura en sus alimentos.
