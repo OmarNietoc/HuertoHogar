@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     const productos = cargarProductos();
+    console.log('Productos cargados:', productos);
     
     renderizarProductos(productos);
     
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function cargarProductos() {
     try {
+
         const productosStorage = JSON.parse(localStorage.getItem('productosHuertoHogar'));
         
         if (productosStorage && productosStorage.length > 0) {
@@ -19,13 +21,20 @@ function cargarProductos() {
         }
         
         if (typeof productosArray !== 'undefined' && productosArray.length > 0) {
+            localStorage.setItem('productosHuertoHogar', JSON.stringify(productosArray));
+            return [...productosArray];
+        }
+
+        console.warn('No se encontraron productos ni en localStorage ni en productosArray');
+        return [];
+    } catch (error) {
+        console.error('Error al cargar productos:', error);
+        
+        if (typeof productosArray !== 'undefined' && productosArray.length > 0) {
             return [...productosArray];
         }
         
         return [];
-    } catch (error) {
-        console.error('Error al cargar productos:', error);
-        return typeof productosArray !== 'undefined' ? [...productosArray] : [];
     }
 }
 
