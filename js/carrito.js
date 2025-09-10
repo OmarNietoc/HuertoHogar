@@ -69,7 +69,7 @@ function renderizarCarrito() {
                 </button>
                 <p class="fw-bold subtotal">Subtotal: $${subtotal.toLocaleString()}</p>
                 <input type="number" min="1" value="${producto.cantidad}" 
-                    class="form-control cantidad-input mt-2" 
+                    class="form-control mt-3" 
                     data-index="${index}">
             </div>
         </div>
@@ -100,7 +100,7 @@ function renderizarCarrito() {
             carrito.splice(index, 1);
             guardarCarrito(carrito);
             renderizarCarrito();
-            actualizarContadorCarrito(carrito.length);
+            actualizarContadorCarrito(carrito);
         });
 });
 }

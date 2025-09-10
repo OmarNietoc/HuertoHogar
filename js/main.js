@@ -16,6 +16,7 @@ function cerrarSesion() {
     localStorage.removeItem('usuarioLogueado');
     localStorage.removeItem('userEmail');
     localStorage.removeItem('horaLogin');
+    localStorage.removeItem("carritoHuertoHogar");
     window.location.href = 'index.html';
 }
 

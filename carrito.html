@@ -69,7 +69,7 @@
                         <i class="bi bi-cart3" style="font-size: 1.5rem;"></i>
                         <span class="cart-count">0</span>
                     </a>
-                    <button class="btn btn-outline-secondary btn-sm" onclick="cerrarSesion()">
+                    <button class="btn btn-outline-primary me-2" onclick="cerrarSesion()">
                         <i class="bi bi-box-arrow-right"></i> Cerrar sesión
                     </button>
                 </div>
@@ -85,34 +85,32 @@
         </div>
     </section>
 
-  <main class="container my-5">
-    <div class="row">
-      <!-- LISTA DE PRODUCTOS - 75% -->
-      <div class="col-lg-9">
-        <div id="productos-carrito" class="list-group">
-          <!-- Aquí se inyectarán los productos con JS -->
+    <main class="container my-5">
+        <div class="row">
+
+        <div class="col-lg-9">
+            <div id="productos-carrito" class="list-group">
+            </div>
         </div>
-      </div>
 
-      <!-- RESUMEN DE COMPRA - 25% -->
-      <div class="col-lg-3">
-        <div class="bg-light p-4 rounded shadow-sm">
-          <h4 class="fw-bold mb-3">Resumen</h4>
-          <div class="d-flex justify-content-between mb-2">
-            <span>Total:</span>
-            <span id="total-compra">$0</span>
-          </div>
+        <div class="col-lg-3">
+            <div class="bg-light p-4 rounded shadow-sm">
+            <h4 class="fw-bold mb-3">Resumen</h4>
+            <div class="d-flex justify-content-between mb-2">
+                <span>Total:</span>
+                <span id="total-compra">$0</span>
+            </div>
 
-          <div class="mb-3">
-            <label for="cupon" class="form-label">Ingrese cupón de descuento:</label>
-            <input type="text" id="cupon" class="form-control" placeholder="Opcional">
-          </div>
+            <div class="mb-3">
+                <label for="cupon" class="form-label">Ingrese cupón de descuento:</label>
+                <input type="text" id="cupon" class="form-control" placeholder="Opcional">
+            </div>
 
-          <button id="btn-pagar" class="btn btn-primary w-100">Pagar</button>
+            <button id="btn-pagar" class="btn btn-primary w-100">Pagar</button>
+            </div>
         </div>
-      </div>
-    </div>
-  </main>
+        </div>
+    </main>
 
     <footer class="py-5 mt-auto">
         <div class="container">

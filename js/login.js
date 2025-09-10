@@ -13,31 +13,6 @@ function inicializarLogin() {
     }
 }
 
-// function manejarLogin(e) {
-//     e.preventDefault();
-
-//     const email = document.getElementById("email").value.trim();
-//     const password = document.getElementById("password").value.trim();
-
-//     let usuarios = JSON.parse(localStorage.getItem("usuariosHuertoHogar")) || [];
-//     const usuarioValido = usuarios.find(user => user.email === email && user.password === password);
-
-//     if (!usuarioValido) {
-//         mostrarAlerta("Correo o contraseña incorrectos", "danger");
-//         return;
-//     }
-
-    
-
-//     // Login exitoso
-//     iniciarSesion(email);
-//     mostrarAlerta("¡Inicio de sesión exitoso!", "success");
-
-//     setTimeout(() => {
-//         window.location.href = "index.html";
-//     }, 1500);
-// }
-
 function manejarLogin(e) {
     e.preventDefault();
 
@@ -47,7 +22,7 @@ function manejarLogin(e) {
     // Traemos usuarios desde localStorage o desde el array global usuariosArray.js
     let usuarios = JSON.parse(localStorage.getItem("usuariosHuertoHogar")) || [];
     if (typeof usuariosArray !== "undefined") {
-        usuarios = [...usuarios, ...usuariosArray]; // combina los dos orígenes
+        usuarios = [...usuarios, ...usuariosArray]; 
     }
     console.log('Usuarios cargados:', usuarios);
     console.log("usuarios array:", usuariosArray);

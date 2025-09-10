@@ -325,3 +325,368 @@ html { scroll-behavior: smooth; overflow-y: scroll; }
     margin: 0.3rem;
     padding: 0.5rem 1.2rem;
 }
+/* ===================== GESTIÓN DE PRODUCTOS ===================== */
+
+/* Imágenes de productos en tabla */
+.product-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--fondo-suave);
+    transition: transform 0.2s ease;
+}
+
+.product-img:hover {
+    transform: scale(1.05);
+}
+
+/* Badge de precio */
+.price-badge {
+    font-size: 0.9rem;
+    font-weight: 600;
+    background-color: var(--verde-esmeralda);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+}
+
+/* Badges de categoría */
+.badge-categoria {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 15px;
+    font-weight: 500;
+}
+
+.badge-frutas {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.badge-verduras {
+    background-color: #51cf66;
+    color: white;
+}
+
+.badge-organicos {
+    background-color: #fcc419;
+    color: var(--gris-oscuro);
+}
+
+.badge-lacteos {
+    background-color: #339af0;
+    color: white;
+}
+
+/* Etiquetas especiales */
+.etiqueta-oferta {
+    background-color: var(--amarillo-mostaza);
+    color: var(--gris-oscuro);
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.etiqueta-nuevo {
+    background-color: #20c997;
+    color: white;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.etiqueta-popular {
+    background-color: #e64980;
+    color: white;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* Tabla de productos */
+#tablaProductos th {
+    font-weight: 600;
+    color: var(--gris-oscuro);
+    background-color: var(--verde-esmeralda);
+    color: white;
+}
+
+#tablaProductos td {
+    vertical-align: middle;
+    background-color: white;
+}
+
+#tablaProductos tr:hover td {
+    background-color: var(--fondo-suave);
+}
+
+/* Formularios de productos */
+.form-producto .form-label {
+    font-weight: 500;
+    color: var(--gris-oscuro);
+    margin-bottom: 0.5rem;
+}
+
+.form-producto .form-control:focus,
+.form-producto .form-select:focus {
+    border-color: var(--verde-esmeralda);
+    box-shadow: 0 0 0 0.25rem rgba(46, 139, 87, 0.25);
+}
+
+/* Preview de imagen */
+.image-preview {
+    width: 100px;
+    height: 100px;
+    border: 2px dashed var(--gris-medio);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    background-color: var(--fondo-suave);
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+/* Modal específico para productos */
+.modal-producto .modal-content {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: none;
+}
+
+.modal-producto .modal-header {
+    background: linear-gradient(135deg, var(--verde-esmeralda), #267349);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    border-bottom: none;
+}
+
+.modal-producto .modal-header .btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+}
+
+.modal-producto .modal-header .btn-close:hover {
+    opacity: 1;
+}
+
+.modal-producto .modal-body {
+    padding: 1.5rem;
+}
+
+.modal-producto .modal-footer {
+    border-top: 1px solid var(--fondo-suave);
+    border-radius: 0 0 15px 15px;
+}
+
+/* Botones de acción en tabla */
+.btn-action {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.btn-action i {
+    font-size: 1rem;
+}
+
+/* Responsividad para tabla de productos */
+@media (max-width: 768px) {
+    .product-img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .price-badge {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    #tablaProductos {
+        font-size: 0.9rem;
+    }
+    
+    .badge-categoria {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .btn-action {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.8rem;
+    }
+    
+    .btn-action i {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-producto .modal-dialog {
+        margin: 0.5rem;
+    }
+    
+    .modal-producto .modal-content {
+        border-radius: 10px;
+    }
+    
+    .modal-producto .modal-header {
+        border-radius: 10px 10px 0 0;
+    }
+}
+
+/* Estados de hover para botones de acción */
+.btn-action.btn-warning:hover {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    transform: translateY(-1px);
+}
+
+.btn-action.btn-danger:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    transform: translateY(-1px);
+}
+
+/* Efectos de transición */
+.product-img,
+.price-badge,
+.badge-categoria,
+.btn-action {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Scroll personalizado para tablas */
+.table-responsive::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: var(--fondo-suave);
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: var(--gris-medio);
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: var(--gris-oscuro);
+}
+
+/* Placeholder para imágenes */
+.product-img[src=""],
+.product-img:not([src]) {
+    background-color: var(--fondo-suave);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-img[src=""]::before,
+.product-img:not([src])::before {
+    content: "🛒";
+    font-size: 1.5rem;
+    color: var(--gris-medio);
+}
+
+/* ===================== GESTIÓN DE USUARIOS ===================== */
+
+/* Badges de roles de usuario */
+.badge.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+.badge.bg-warning {
+    background-color: #ffc107 !important;
+    color: var(--gris-oscuro) !important;
+}
+
+.badge.bg-info {
+    background-color: #17a2b8 !important;
+}
+
+/* Efectos hover para badges */
+.badge {
+    transition: all 0.2s ease;
+}
+
+.badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Tabla de usuarios */
+#tablaUsuarios th {
+    font-weight: 600;
+    color: var(--gris-oscuro);
+    background-color: var(--verde-esmeralda);
+    color: white;
+}
+
+#tablaUsuarios td {
+    vertical-align: middle;
+    background-color: white;
+}
+
+#tablaUsuarios tr:hover td {
+    background-color: var(--fondo-suave);
+}
+
+/* Estilos específicos para celdas de email */
+#tablaUsuarios td:first-child {
+    font-weight: 500;
+    color: var(--verde-esmeralda);
+}
+
+/* Responsividad para tabla de usuarios */
+@media (max-width: 768px) {
+    #tablaUsuarios {
+        font-size: 0.9rem;
+    }
+    
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.5rem;
+    }
+    
+    .btn-action {
+        padding: 0.2rem 0.4rem;
+    }
+}
+
+/* Estados de hover para botones de usuario */
+.btn-action.btn-warning:hover {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(255, 193, 7, 0.3);
+}
+
+.btn-action.btn-danger:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(220, 53, 69, 0.3);
+}
+
+/* Efectos de transición para filas de tabla */
+#tablaUsuarios tr {
+    transition: background-color 0.2s ease;
+}
+
+/* Estilo para el admin logueado (si decides mostrarlo de otra forma) */
+.admin-logged {
+    background-color: rgba(46, 139, 87, 0.1) !important;
+    border-left: 3px solid var(--verde-esmeralda);
+}

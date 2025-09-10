@@ -1,5 +1,5 @@
 
-const productos = [
+const productosArray = [
     {
         id: 'FR001',
         nombre: 'Manzanas Fuji',

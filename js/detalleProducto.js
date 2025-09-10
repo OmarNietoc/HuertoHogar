@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!productId) return;
 
-    const producto = productos.find(p => p.id === productId);
+    const producto = productosArray.find(p => p.id === productId);
     if (!producto) {
         console.error('Producto no encontrado');
         return;
@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const relacionadosContainer = document.getElementById('productos-relacionados');
-var relacionados = productos.filter(p => p.categoria === producto.categoria && p.id !== productId);
+var relacionados = productosArray.filter(p => p.categoria === producto.categoria && p.id !== productId);
 if (relacionados.length === 0) {
-    relacionados = productos.filter(p => p.categoria === 'organicos' && p.id !== productId);
+    relacionados = productosArray.filter(p => p.categoria === 'organicos' && p.id !== productId);
 }
 
 relacionadosContainer.style.display = 'flex';

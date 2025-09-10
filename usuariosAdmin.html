@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huerto Hogar - Gestión de usuarios</title>
+
+    
+    <link rel="icon" href="./images/icon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./images/icon.ico">
+    <link rel="shortcut icon" href="./images/icon.ico" type="image/x-icon">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"></noscript>
+    
+    <link rel="stylesheet" href="./css/custom.css">
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">
+                <img src="./images/logo.jpg" alt="del campo al hogar" class="logo-navbar">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="productosAdmin.html">Productos</a>
+                    </li>
+                </ul>    
+                <div id="LoginRegister" class="d-none d-flex align-items-center">
+                    <a href="login.html" class="btn btn-outline-primary me-2">Ingresar</a>
+                    <a href="registro.html" class="btn btn-primary me-3">Registrarse</a>
+                    <a href="carrito.html" class="btn btn-link position-relative cart-icon">
+                        <i class="bi bi-cart3" style="font-size: 1.5rem;"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+                <div id="userLoggedIn" class="d-none d-flex align-items-center" >
+                    <div id="panelAdmin" class="d-none d-flex align-items-center" >
+                        <a href="index.html" class="btn btn-outline-primary me-2">Ir a Tienda</a>
+                    </div>
+                    <span class="me-2 text-secondary">Bienvenido, </span>
+                    <span class="user-email me-3 text-verde fw-bold"></span>
+
+                    <button class="btn btn-outline-primary me-2" onclick="cerrarSesion()">
+                        <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <section class="bg-light p-4 rounded shadow-sm w-100">
+            <h1 class="mb-4">Gestión de Usuarios</h1>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle" id="tablaUsuarios">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Email</th>
+                            <th>Nombre</th>
+                            <th>Rol</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-4 text-end">
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalRegistrar">
+                    <i class="bi bi-person-plus"></i> Registrar nuevo usuario
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Editar -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditarLabel">Editar Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formEditarUsuario" class="row g-3">
+                    <div class="col-md-6">
+                        <label for="editarEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="editarEmail" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="editarNombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="editarNombre" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="editarRol" class="form-label">Rol</label>
+                        <select id="editarRol" class="form-select" required>
+                            <option value="cliente">Cliente</option>
+                            <option value="admin">Administrador</option>
+                            <option value="vendedor">Vendedor</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="editarTelefono" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="editarTelefono">
+                    </div>
+                    <div class="col-12">
+                        <label for="editarDireccion" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="editarDireccion">
+                    </div>
+                            <div class="col-md-6">
+                                <label for="editarRegion" class="form-label">Región</label>
+                                <select id="editarRegion" class="form-select" required>   
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editarComuna" class="form-label">Comuna</label>
+                                <select id="editarComuna" class="form-select" required>
+                                    
+                                </select>
+                            </div>                    
+
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Modal Eliminar -->
+    <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modalEliminarLabel">Eliminar Usuario</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+            <p>¿Estás seguro de que deseas eliminar a <strong id="usuarioAEliminar"></strong>?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button id="confirmarEliminar" type="button" class="btn btn-danger">Eliminar</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+<!-- Modal Registrar -->
+<div class="modal fade" id="modalRegistrar" tabindex="-1" aria-labelledby="modalRegistrarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalRegistrarLabel">Registrar Nuevo Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formRegistrarUsuario" class="row g-3">
+                    <div class="col-md-6">
+                        <label for="nuevoEmail" class="form-label">Email *</label>
+                        <input type="email" class="form-control" id="nuevoEmail" required 
+                            placeholder="usuario@ejemplo.com">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="nuevoConfirmEmail" class="form-label">Confirmar Email *</label>
+                        <input type="email" class="form-control" id="nuevoConfirmEmail" required 
+                            placeholder="Confirmar email">
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="nuevoPassword" class="form-label">Contraseña *</label>
+                        <input type="password" class="form-control" id="nuevoPassword" required 
+                            placeholder="Mínimo 4 caracteres">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="nuevoConfirmPassword" class="form-label">Confirmar Contraseña *</label>
+                        <input type="password" class="form-control" id="nuevoConfirmPassword" required 
+                            placeholder="Confirmar contraseña">
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="nuevoNombre" class="form-label">Nombre Completo *</label>
+                        <input type="text" class="form-control" id="nuevoNombre" required 
+                            placeholder="Nombre y Apellido">
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="nuevoRol" class="form-label">Rol *</label>
+                        <select id="nuevoRol" class="form-select" required>
+                            <option value="">Seleccionar rol...</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="admin">Administrador</option>
+                            <option value="vendedor">Vendedor</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="nuevoTelefono" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="nuevoTelefono" 
+                            placeholder="+56 9 1234 5678">
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="nuevaDireccion" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="nuevaDireccion" 
+                            placeholder="Calle, número, departamento">
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="nuevaRegion" class="form-label">Región *</label>
+                        <select id="nuevaRegion" class="form-select" required>
+                            <option value="">Seleccionar región...</option>
+                            <!-- Las opciones se llenarán con JavaScript -->
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="nuevaComuna" class="form-label">Comuna *</label>
+                        <select id="nuevaComuna" class="form-select" required>
+                            <option value="">Seleccione una comuna</option>
+                            <!-- Las opciones se llenarán con JavaScript -->
+                        </select>
+                    </div>
+                    
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="nuevoTerminos" required>
+                            <label class="form-check-label" for="nuevoTerminos">
+                                Acepto los términos y condiciones *
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-success w-100">
+                            <i class="bi bi-person-plus"></i> Registrar Usuario
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <footer class="py-5 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-primary">
+                        <img src="./images/logo.jpg" alt="del campo al hogar" class="logo-navbar">
+                    </h5>
+                    <p class="text-secondary">Llevando la frescura del campo a tu hogar desde 2017.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-primary">Enlaces rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="nosotros.html" class="nav-link">Sobre nosotros</a></li>
+                        <li><a href="tyc.html" class="nav-link">Términos y condiciones</a></li>
+                        <li><a href="politicas.html" class="nav-link">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-primary">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="text-secondary"><i class="bi bi-geo-alt-fill me-2"></i>Santiago, Chile</li>
+                        <li class="text-secondary"><i class="bi bi-envelope-fill me-2"></i>contacto@huertohogar.cl</li>
+                        <li class="text-secondary"><i class="bi bi-telephone-fill me-2"></i>+56 2 2345 6789</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <p class="text-center text-secondary mb-0">&copy; 2025 HuertoHogar. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="js/usuariosArray.js"></script>
+    <script src="js/regionesComunas.js"></script>
+    <script src="js/validaciones.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/usuariosAdmin.js"></script>
+</body>
+</html>
