@@ -1,8 +1,8 @@
 # 🌱 HuertoHogar - E-commerce de Productos Frescos
 
-##USUARIO ADMIN PARA PRUEBAS:
+## USUARIO ADMIN PARA PRUEBAS
 correo:admin@gmail.com
-contraseña:1234
+contraseña:1234.
 
 ## 📋 Descripción del Proyecto
 
