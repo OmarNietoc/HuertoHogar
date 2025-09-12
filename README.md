@@ -53,4 +53,4 @@ Nuestra presencia se extiende a las siguientes ciudades:
 
 
 ### Herramientas de Desarrollo
-- **Git** - Control de versiones
+- **GitHub** - Control de versiones
